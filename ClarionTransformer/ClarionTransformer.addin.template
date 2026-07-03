@@ -1,0 +1,21 @@
+<AddIn name="Clarion Transformer" author="ClarionAssistant" description="Transforma codigo Clarion con IA (Claude API) segun un protocolo .md">
+  <Manifest>
+    <Identity name="ClarionTransformer" version="1.0.0"/>
+  </Manifest>
+  <Runtime>
+    <Import assembly="ClarionTransformer.dll"/>
+  </Runtime>
+
+  <Path name="/Workspace/Tools">
+    <MenuItem id="ClarionTransformerSeparator" type="Separator"/>
+    <MenuItem id="TransformLegacyAbc"
+              label="Transformar a ABC (Claude)..."
+              class="ClarionTransformer.Commands.TransformLegacyAbcCommand"/>
+    <MenuItem id="RefactorCode"
+              label="Refactorizar (Claude)..."
+              class="ClarionTransformer.Commands.RefactorCommand"/>
+    <MenuItem id="ClarionTransformerSettings"
+              label="ClarionTransformer - Configuracion..."
+              class="ClarionTransformer.Commands.TransformerSettingsCommand"/>
+  </Path>
+</AddIn>

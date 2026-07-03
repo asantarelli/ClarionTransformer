@@ -1,0 +1,7 @@
+<Project>
+  <!-- Default Clarion root — override in Directory.Build.props.user -->
+  <PropertyGroup>
+    <ClarionRoot Condition="'$(ClarionRoot)'==''">D:\Clarion11</ClarionRoot>
+    <ClarionVersion Condition="'$(ClarionVersion)'==''">11</ClarionVersion>
+  </PropertyGroup>
+</Project>

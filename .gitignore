@@ -1,0 +1,17 @@
+## Build output
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+## Deployment artifacts
+*.addin
+
+## Logs
+*.log
+
+## Local tool config (machine-specific, not for the public repo)
+.claude/
