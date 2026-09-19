@@ -91,7 +91,7 @@ namespace ClarionTransformer.Dialogs
 
             var lblProto = new Label
             {
-                Text      = "Si no se indica, usa Protocolo_ClarionTransformer.md en %APPDATA%\\ClarionAssistant\\",
+                Text      = "Si no se indica, usa Protocolo_ClarionTransformer.md en %APPDATA%\\ClarionTransformer\\",
                 Location  = new Point(200, y), Width = 330, Height = 28,
                 Font      = new Font(Font, FontStyle.Italic), ForeColor = Color.Gray
             };
@@ -309,8 +309,7 @@ namespace ClarionTransformer.Dialogs
             if (string.IsNullOrWhiteSpace(path))
             {
                 // Ofrecer abrir el predeterminado
-                string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                path = System.IO.Path.Combine(appData, "ClarionAssistant", "Protocolo_ClarionTransformer.md");
+                path = TransformerProfileService.DefaultProtocolPath;
                 if (!System.IO.File.Exists(path))
                 { MessageBox.Show("No hay archivo de protocolo configurado ni existe el predeterminado.\n\n" + path, "Editar protocolo", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             }

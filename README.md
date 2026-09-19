@@ -15,7 +15,7 @@ Toma el bloque de código seleccionado en el editor —o el procedimiento comple
 - Soporte de **múltiples perfiles**: uno por tipo de transformación o por proyecto
 - Opción **"Agregar comentarios explicativos"** por perfil: le pide a Claude que comente los bloques cuyo funcionamiento no sea obvio
 - Backup opcional del código original y transformado (`Old`/`New`), guardado dentro de la solución activa, configurable por perfil
-- Fallback automático al archivo `Protocolo_ClarionTransformer.md` en `%APPDATA%\ClarionAssistant\`
+- Fallback automático al archivo `Protocolo_ClarionTransformer.md` en `%APPDATA%\ClarionTransformer\`
 - Instrucciones adicionales por perfil (campo libre de texto)
 - Compatible con Clarion 11 y Clarion 12
 
@@ -70,7 +70,7 @@ El archivo de protocolo es un `.md` de texto libre que describe las reglas que C
 
 Si no configurás un archivo de protocolo, el addin busca automáticamente:
 ```
-%APPDATA%\ClarionAssistant\Protocolo_ClarionTransformer.md
+%APPDATA%\ClarionTransformer\Protocolo_ClarionTransformer.md
 ```
 Si tampoco existe, el addin avisa que hace falta configurar un protocolo antes de transformar.
 
@@ -107,6 +107,8 @@ copy ClarionTransformer\ClarionTransformer.addin.template ClarionTransformer\Cla
 ## Licencia
 
 MIT License — ver [LICENSE](LICENSE)
+
+`Services/EditorService.cs` deriva de [Clarion Assistant](https://github.com/ClarionLive/ClarionAssistant) (Copyright (c) 2025-2026 ClarionLive, MIT). Su aviso de copyright y licencia se conserva en [LICENSE](LICENSE).
 
 ---
 

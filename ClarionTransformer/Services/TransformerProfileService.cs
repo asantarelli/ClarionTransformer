@@ -6,17 +6,36 @@ namespace ClarionTransformer.Services
 {
     public static class TransformerProfileService
     {
-        public static readonly string SettingsPath = ResolveSettingsPath();
+        public static readonly string SettingsPath        = ResolveDataFile("clarion-transformer.json");
+        public static readonly string DefaultProtocolPath = ResolveDataFile("Protocolo_ClarionTransformer.md");
 
-        private static string ResolveSettingsPath()
+        // Archivos en %APPDATA%\ClarionTransformer\. Hasta 1.0.0 vivian en %APPDATA%\ClarionAssistant\
+        // (carpeta de otro addin): se mueven una sola vez a la carpeta propia; si no se puede mover, se copia.
+        private static string ResolveDataFile(string fileName)
         {
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             if (!string.IsNullOrEmpty(appData))
-                return Path.Combine(appData, "ClarionAssistant", "clarion-transformer.json");
+            {
+                string path = Path.Combine(appData, "ClarionTransformer", fileName);
+                MigrateLegacyFile(Path.Combine(appData, "ClarionAssistant", fileName), path);
+                return path;
+            }
 
             string asmDir = Path.GetDirectoryName(
                 System.Reflection.Assembly.GetExecutingAssembly().Location);
-            return Path.Combine(asmDir ?? ".", "clarion-transformer.json");
+            return Path.Combine(asmDir ?? ".", fileName);
+        }
+
+        private static void MigrateLegacyFile(string legacyPath, string newPath)
+        {
+            try
+            {
+                if (File.Exists(newPath) || !File.Exists(legacyPath)) return;
+                Directory.CreateDirectory(Path.GetDirectoryName(newPath));
+                try { File.Move(legacyPath, newPath); }
+                catch { File.Copy(legacyPath, newPath); }
+            }
+            catch { }
         }
 
         private static TransformerSettings _cached;

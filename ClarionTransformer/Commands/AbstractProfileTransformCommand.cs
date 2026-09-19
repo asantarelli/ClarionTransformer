@@ -131,7 +131,7 @@ namespace ClarionTransformer.Commands
                         "No hay un protocolo de transformacion configurado para el perfil \"" + ProfileName + "\".\n\n" +
                         "Configura un archivo .md en: Tools > ClarionTransformer - Configuracion\n" +
                         "o crea el archivo predeterminado:\n" +
-                        "%APPDATA%\\ClarionAssistant\\Protocolo_ClarionTransformer.md",
+                        TransformerProfileService.DefaultProtocolPath,
                         "ClarionTransformer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -285,9 +285,8 @@ namespace ClarionTransformer.Commands
             if (!string.IsNullOrWhiteSpace(configured) && File.Exists(configured))
                 return configured;
 
-            // 2. Predeterminado en %APPDATA%\ClarionAssistant\
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string defaultPath = Path.Combine(appData, "ClarionAssistant", "Protocolo_ClarionTransformer.md");
+            // 2. Predeterminado en %APPDATA%\ClarionTransformer\
+            string defaultPath = TransformerProfileService.DefaultProtocolPath;
             if (File.Exists(defaultPath))
                 return defaultPath;
 

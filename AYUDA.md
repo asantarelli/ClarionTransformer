@@ -56,7 +56,7 @@ Elegí el perfil en el combo de arriba de la configuración para editar **su** p
 
 Pegar la clave de Anthropic en el campo **API Key**. Se almacena en:
 ```
-%APPDATA%\ClarionAssistant\clarion-transformer.json
+%APPDATA%\ClarionTransformer\clarion-transformer.json
 ```
 No se envía a ningún lugar más que a la API de Anthropic.
 
@@ -75,7 +75,7 @@ Hacer clic en `...` para seleccionar tu archivo `.md` de protocolo, o escribir l
 
 Si no configurás ninguno, el addin busca automáticamente:
 ```
-%APPDATA%\ClarionAssistant\Protocolo_ClarionTransformer.md
+%APPDATA%\ClarionTransformer\Protocolo_ClarionTransformer.md
 ```
 Si tampoco existe ese archivo, el addin muestra un aviso y no ejecuta la transformación — hace falta configurar un protocolo antes de poder usar el comando. Podés copiar alguno de los [ejemplos incluidos](protocolo/) a esa ubicación como punto de partida.
 

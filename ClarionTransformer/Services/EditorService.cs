@@ -1,3 +1,8 @@
+// Derived from Clarion Assistant - ClarionAssistant/Services/EditorService.cs
+// https://github.com/ClarionLive/ClarionAssistant
+// Copyright (c) 2025-2026 ClarionLive. Licensed under the MIT License.
+// Modifications Copyright (c) 2026 asantarelli. See LICENSE for both notices.
+
 using System;
 using System.Collections.Generic;
 using System.IO;

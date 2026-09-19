@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1] - 2026-09-19
+
+### Atribución y configuración propia
+
+- `LICENSE` incluye el aviso de copyright y licencia MIT de Clarion Assistant (ClarionLive), del que deriva `Services/EditorService.cs`. El archivo lleva además una cabecera con el origen, y el README lo menciona.
+- El manifiesto `.addin` declara `author="asantarelli"` (antes decía `ClarionAssistant`).
+- Configuración y protocolo predeterminado en `%APPDATA%\ClarionTransformer\` en lugar de `%APPDATA%\ClarionAssistant\`. La primera vez que se abre, el addin mueve `clarion-transformer.json` y `Protocolo_ClarionTransformer.md` de la carpeta anterior, así que no se pierden perfiles, API key ni protocolo.
+
 ## [1.0.0] - 2026-07-03
 
 ### Versión inicial
