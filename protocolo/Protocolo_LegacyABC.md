@@ -55,6 +55,9 @@ GET(archivo, clave) -> Fetch
       ! no encontrado
     END
 
+  NOTA: El Clear() anterior a la asignación del valor de la clave no es
+  necesario cuando se usa Fetch().
+
 PUT(archivo) -> Update
 --------------------------------------------------------------------------------
   Legacy:
